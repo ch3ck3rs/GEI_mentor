@@ -46,7 +46,7 @@ current = current_df.plot(kind='pie', y='mentor_current', colormap=cmap, figsize
 current.set_title('Do you currently have a mentor?')
 current.set_ylabel(None)
 
-with st.beta_expander('Current mentor status and desire for mentors.'):
+with st.beta_expander('Current mentor status and desire for mentors'):
     st.markdown('### Current Mentor Status')
     st.write('We asked respondents if they currently had a mentor.  ', current_df['Yes'], \
     ' of the respondets replied "Yes" they have a mentor and ', current_df['No'], \
@@ -130,15 +130,11 @@ with st.beta_expander('Areas of Mentorship'):
     st.pyplot()
 
 with st.beta_expander('What has been learned from mentors?'):
-    st.header('What has been learned from mentors in the past?')
-
-    st.markdown('summary of responses')
-
     lesson = survey['mentor_benefits_str'].dropna()
-
-    if st.checkbox('Show detailed responses for mentoring benefits'):
-        for response in lesson:
-            st.write(response)
+    st.markdown('#### Below are the responses as written by respondents.')
+    st.write(' ')
+    for response in lesson:
+        st.write(response)
 
 with st.beta_expander('Functions of Mentorship'):
     st.header('What function would you like your mentor to come from?')
@@ -180,10 +176,11 @@ summary_text = f"This survey had {respondents} respondents and was administered 
     or outside of engineering, but would like to gain a better understanding \
     of Finance and RD&E.  The main topics of interest were Career Development \
     followed by Influencing Others and Building your Brand. \n \
-\n The main benefits saught or gained from a mentor have been \n \
-- A broader understanding of the organization and it's strategies. \n \
-- Career direcetion and critical feedback \n \
-- "
+\n The main benefits sought or gained from a mentor have been \n \
+- A broader understanding of the organization and its strategies. \n \
+- Career direcetion, stretch assignments, sounding board and critical feedback \n \
+- Improvement of communication skills within reporting structure and across the organization \n \
+- Increased technical knowledge, idea exchange and guidance on complex projects "
 
 Summary.markdown(summary_text)
 
